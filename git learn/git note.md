@@ -30,7 +30,7 @@ git是一个分布式版本控制系统。
 
 - git init  把当前文件夹初始化成一个git仓库   //initation 初始化 除了这个命令，其他命令必须在git仓库目录执行
 
-- git add <file> 把文件添加到要暂存区，可以添加多个文件  //暂存区相当于*添加清单*(我自己的形容)
+- git add <file> 把文件添加到要暂存区，可以添加多个文件  //暂存区相当于*添加清单*(我自己的形容)，如果文件名带空格，就用双引号引起来
 
 - git commit -m <message>    把暂存区的文件提交到git的本地仓库  //commit 在git中被成为快照 相当于游戏存档
 
@@ -85,11 +85,19 @@ git是一个分布式版本控制系统。
 
 - 当我们在GitHub上创建一个远程库的时候，可以从这个仓库克隆出新的仓库到本地，也可以把一个我们自己的本地仓库与这个远程库关联，然后，再把本地仓库的内容推送到GitHub仓库
 
-- 在本地的learngit仓库下中运行 git remote add origin git@github.com : pencil236/learngit.git命令，就可以把本地的learngit仓库和远程仓库关联起来。其中 origin是远程仓库名可以自定义 pencil236是我的GitHub账户名 git@github.com中的git是GitHub预定义的SSH用户名，@后面的是GitHub服务器的域名                //remote就是远程的意思          关联的抽象命令是git remote add origin git@server-name:path/repo-name.git
+- 在本地的learngit仓库下中运行 git remote add origin git@github.com : pencil236/learngit.git命令，就可以把本地的learngit仓库和远程仓库关联起来。其中 origin是远程仓库名可以自定义 pencil236是我的GitHub账户名 git@github.com中的git是GitHub预定义的SSH用户名，@后面的是GitHub服务器的域名      这里的learngit应该以远程仓库的名字为准           //remote就是远程的意思          关联的抽象命令是git remote add origin git@server-name:path/repo-name.git
+
+- 上面那一段的命令，当你在github创建一个新的空的仓库的时候，github会给你提示，直接复制粘贴过去就好了
+
+- 现在提倡把master分支改成main分支
+
+- 如果远程仓库地址有误，可以使用 `git remote set-url origin <正确的地址>` 命令来修改。git@github.com : pencil236/learngit.git就是一个地址。
 
 - git push origin master 就是把本地master分支的最新修改推送到GitHub
 
 - 在第一次推送的时候，使用了命令git push -u origin master 这个-u参数不仅推送了本地分支master，还把本地master分支和远程的master分支关联起来。下次就可以简化命令了
+
+- 注意 ：用公共网络的时候会限制不让推送，比如校园网。。。。记得换成手机热点
 
 - git remote -v 这个命令用来查看远程库的信息
 
@@ -107,7 +115,7 @@ git是一个分布式版本控制系统。
 
 - git branch 会列出所有的分支 当前分支前面会标一个*号
 
-- git merge <branch name>合并指定分支到当前分支 eg 我们当前在master分支 当我们使用命令 git merge dev 就会让master指向dev指向的commit，也就将dev分支上的内容合并到master分支上了。这种合并是快进模式，不是每种情况都能成功
+- git merge <branch name>合并指定分支到当前分支 eg 我们当前在master分支 当我们使用命令 git merge dev 就会让master指向dev指向的commit，也就将dev分支上的内容合并到master分支了。这种合并是快进模式，不是每种情况都能成功
 
 - git branch -d dev  删除dev分支
 
